@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Отписка</title>
+  
+  <!-- Подключение Altcraft SDK -->
+  <script src="https://pxl.polina-zakaryan.dev.altkraft.com/ak_list_unsubscribe.js?id=MXw3Mw=="></script>
+
+  <!-- Получение send_message_id из URL -->
+  <script>
+    function getSendMessageId() {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get('paramname');
+    }
+  </script>
+  
+  <!--  Инициализация AkUnsub класса -->
+  <script>
+    const akUnsub = new AkUnsub({
+      rtoken: 'ZqttiZfMGTo-4a41f880f257477b',
+      pxl_domain: 'pxl.polina-zakaryan.dev.altkraft.com',
+    });
+  </script>
+</head>
+<body>
+
+  <!-- Кнопка для подтверждения отписки -->
+  <button onclick="akUnsub.confirmUnsub(getSendMessageId())">Подтвердить отписку</button>
+
+  <!-- Кнопка для отмены отписки -->
+  <button onclick="akUnsub.cancelUnsub(getSendMessageId())">Отменить отписку</button>
+
+</body>
+</html>
